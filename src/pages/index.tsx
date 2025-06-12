@@ -14,7 +14,7 @@ export default function Home() {
         className={`${styles.page}`}
       >
         <main className={styles.main}>
-          <p>Main</p>
+          <button className={styles.square}>X</button>
         </main>
       </div>
     </>
