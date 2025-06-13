@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import Board from '@/components/Board/board'
+import Board from '../Board/Board'
 
 /**
  * Game Component
@@ -15,14 +15,26 @@ export default function Game() {
    * history tracks each move throughout a game.
    */
   const [xIsNext, setXIsNext] = useState(true);
-  const [history, setHistory] = useState([Array(9).fill(null)])
+  const [history, setHistory] = useState<string[][]>([Array(9).fill(null)])
 
-  const currentSquares = history[history.length -1];
+  const currentSquares = history[history.length - 1];
+
+  /**
+   * Handle Play
+   * 
+   * Helper function to update game state
+   * 
+   * @param nextSquares 
+   */
+  function handlePlay(nextSquares: Array<string>) {
+    setHistory([...history, nextSquares]);
+    setXIsNext(!xIsNext);
+  } 
 
   return (
     <div className="game">
       <div className="game-board">
-        <Board />
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
         <ol><li><p>test</p></li></ol>

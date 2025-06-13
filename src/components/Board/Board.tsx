@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 
 import styles from "./Board.module.css";
 
@@ -10,6 +10,13 @@ import Square from '../Square/Square'
 
 /* Game Status Type Declaration*/
 type GameStatus = string | null;
+type NextSquares = Array<string>;
+
+interface BoardProps {
+  xIsNext: boolean;
+  squares: Array<string>;
+  onPlay: (nextSquares: string[]) => void;
+}
 
 /**
  * Board
@@ -18,18 +25,8 @@ type GameStatus = string | null;
  * 
  * @returns Board Component 
  */
-export default function Board() {
-
+export default function Board({ xIsNext, squares, onPlay} : BoardProps) {
   let gameStatus: GameStatus = null;
-
-  /** 
-   * State Declarations
-   * 
-   * xIsNext tracks which turn it is (X or O)
-   * squares tracks the status of the board.
-   */
-  const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState(Array(9).fill(null))
 
   /**
    * Calculate Winner
@@ -67,7 +64,7 @@ export default function Board() {
    * Event Handler to update board state for individual squares
    * 
    * @param {number} i Square array index that was clicked
-   * @return {void}
+   * @return
    */
   function handleClick(i: number){
     // If a square already has a value, return and skip to the next turn.
@@ -76,7 +73,7 @@ export default function Board() {
     }
 
     // Duplicate the Squares state
-    const nextSquares = squares.slice();
+    const nextSquares : NextSquares = squares.slice();
 
     // If xIsNext is true, place an X, else place an O
     if (xIsNext) {
@@ -84,11 +81,8 @@ export default function Board() {
     } else {
       nextSquares[i] = "O";
     }
-
-    // Set squares state
-    setSquares(nextSquares);
-    // Set xIsNext to opposite of current (true or false).
-    setXIsNext(!xIsNext);
+    
+    onPlay(nextSquares);
   }
 
   // Check for winner and update Status section
