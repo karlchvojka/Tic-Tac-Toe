@@ -1,8 +1,18 @@
 'use client'
 
-import { useState } from "react";
-
+import { MouseEventHandler } from "react";
 import styles from "./Square.module.css";
+
+/**
+ * Square Component Prop types
+ */
+type SquareProps = {
+  /* Value to be displayed in the square */
+  value: string | null;
+
+  /* Square click event handler */
+  onSquareClick: MouseEventHandler;
+}
 
 /**
  * Square
@@ -11,21 +21,11 @@ import styles from "./Square.module.css";
  * 
  * @returns Square Component
  */
-export default function Square() {
-
-  const [value, setValue] = useState<string | null>(null);
-
-  /**
-   * Button Click Handler
-   */
-  function handleClick() {
-    setValue('X');
-  }
-
+export default function Square({value, onSquareClick} : SquareProps) {
   return (
     <button
       className={styles.square}
-      onClick={handleClick}
+      onClick={onSquareClick}
     >
       {value}
     </button>
