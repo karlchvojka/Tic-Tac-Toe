@@ -1,22 +1,28 @@
+'use client'
+
 import styles from "./Board.module.css";
+
+/* Component Imports */
+import Square from '../Square/Square'
+/* End Component Imports */
 
 export default function Board() {
   return ( 
     <div className="board-wrap">
-      <div className="board-row">
-        <button className={styles.square}>1</button>
-        <button className={styles.square}>2</button>
-        <button className={styles.square}>3</button>
+      <div className={styles.boardRow}>
+        <Square value={1} />
+        <Square value={2} />
+        <Square value={3} />
       </div>
-      <div className="board-row">
-        <button className={styles.square}>4</button>
-        <button className={styles.square}>5</button>
-        <button className={styles.square}>6</button>
+      <div className={styles.boardRow}>
+        <Square value={4} />
+        <Square value={5} />
+        <Square value={6} />
       </div>
-      <div className="board-row">
-        <button className={styles.square}>7</button>
-        <button className={styles.square}>8</button>
-        <button className={styles.square}>9</button>
+      <div className={styles.boardRow}>
+        <Square value={7} />
+        <Square value={8} />
+        <Square value={9} />
       </div>
     </div>
   );
