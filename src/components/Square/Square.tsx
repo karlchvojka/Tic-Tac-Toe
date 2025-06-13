@@ -1,22 +1,33 @@
 'use client'
 
-import styles from "./Square.module.css";
+import { useState } from "react";
 
-/**
- * Type declaration for Square Component Props
- */
-type SquareProps = {
-  value: number;
-} 
+import styles from "./Square.module.css";
 
 /**
  * Square
  * 
  * Used within the Tic-tac-toe board.
  * 
- * @param {number} value Display value for the square 
  * @returns Square Component
  */
-export default function Square({ value } : SquareProps ) {
-  return <button className={styles.square}>{value}</button>
+export default function Square() {
+
+  const [value, setValue] = useState<string | null>(null);
+
+  /**
+   * Button Click Handler
+   */
+  function handleClick() {
+    setValue('X');
+  }
+
+  return (
+    <button
+      className={styles.square}
+      onClick={handleClick}
+    >
+      {value}
+    </button>
+  );
 }
