@@ -31,6 +31,18 @@
   }
 }
 
+.status {
+  margin-bottom: 10px;
+}
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
 @media (max-width: 600px) {
   .page {
     padding: 32px;
