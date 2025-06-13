@@ -1,9 +1,9 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 
-function Square() {
-  return <button className={styles.square}>X</button>
-}
+/* Component Imports */
+import Board from '@/components/Board/board';
+/* End Component Imports */
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
       <div className={`${styles.page}`} >
         <main className={styles.main}>
-          <Square />
+          <Board />
         </main>
       </div>
     </>
