@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 
 /* Component Imports */
-import Board from '@/components/Board/board';
+import Game from '@/components/Game/Game';
 /* End Component Imports */
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
       <div className={`${styles.page}`} >
         <main className={styles.main}>
-          <Board />
+          <Game />
         </main>
       </div>
     </>
