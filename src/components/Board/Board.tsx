@@ -98,6 +98,17 @@ export default function Board({ xIsNext, squares, onPlay} : BoardProps) {
     <div className="board-wrap">
       <div className="status"><p>{gameStatus}</p></div>
       <div className="playBoard">
+        { 
+          [...Array(3).keys()].map(keyRow =>
+            <div className={[styles.boardRow, keyRow]}>
+              {
+                [...Array(3).keys()].map(keyCol =>
+                  <p className={keyCol + 1}>{((keyRow + 1) * (keyCol + 1)) }</p>
+                )
+              }
+            </div>
+          )
+        }
         <div className={styles.boardRow}>
           <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
           <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
