@@ -58,11 +58,17 @@ export default function Game() {
 
   return (
     <div className={styles.game}>
-      <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-      </div>
-      <div className={styles.gameInfo}>
-        <ol>{moves}</ol>
+      <header>
+        <h1>Tic-Tac-Toe</h1>
+        <p>A simple Tic-Tac-Toe game written in ReactJS for Practice</p>
+      </header>
+      <div className={styles.gameUI}>
+        <div className="game-board">
+          <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        </div>
+        <div className={styles.gameInfo}>
+          <ol>{moves}</ol>
+        </div>
       </div>
     </div>
   );

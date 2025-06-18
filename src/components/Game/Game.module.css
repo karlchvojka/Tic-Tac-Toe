@@ -1,4 +1,9 @@
-.game {
+.game header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.gameUI {
   display: flex;
   flex-direction: row;
 }
