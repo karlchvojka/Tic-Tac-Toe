@@ -1,5 +1,5 @@
-.boardRow:after {
-  clear: both;
-  content: '';
-  display: table;
+.playBoard {
+  display: grid;
+  grid-template-rows: 34px 34px 34px;
+  grid-template-columns: 34px 34px 34px;
 }

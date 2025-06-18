@@ -1,8 +1,14 @@
-.game {
+.game header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.gameUI {
   display: flex;
   flex-direction: row;
 }
 
 .gameInfo {
+  min-width: 180px;
   margin-left: 20px;
 }
